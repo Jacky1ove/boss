@@ -7,7 +7,7 @@ import  thunk  from 'redux-thunk'
 import { Provider } from 'react-redux'
 import reducer from './reducer'
 import './config'
-
+import './index.css'
 import Login from './container/login/login'
 import Register from './container/register/register'
 import BossInfo from './container/bossinfo/bossinfo'

@@ -7,8 +7,9 @@ const utils = require('utility')
 const _filter = {'psw':0,'__v':0}
 
 Router.get('/list',(req,res) => {
-    User.find({},(err,doc) => {
-        return res.json(doc)
+    const type = req.query.type
+    User.find({type},{psw:0},(err,doc) => {
+        return res.json({code:0,data:doc})
     })
 })
 Router.post('/register',(req,res) => {
@@ -52,18 +53,19 @@ Router.post('/login',(req,res) => {
     })
 })
 Router.post('/update',(req,res) => {
-    console.log(req.cookies)
     const userid  = req.cookies.userid
     if(!userid){
         return res.json({code:1})
     }
     const body = req.body
+    console.log(body,'**************************')
     User.findOneAndUpdate({_id:userid},body,(err,doc) => {
-        console.log(userid,doc)
+        console.log(userid,doc,'++++++++++++++++++++++++')
         const data = Object.assign({},{
             username:doc.username,
             type:doc.type
         },body)
+        console.log(data,'------------------------------')
         return res.json({code:0,data:data})
     })
 })

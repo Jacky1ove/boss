@@ -12,20 +12,21 @@ class NavLink extends React.Component{
         const navList = this.props.data.filter(v=>!v.hide)
         console.log(navList)
         return(
-            <TabBar>
-                {navList.map(v=>(
-                    <TabBar.Item
-                        key={v.path}
-                        title={v.text}
-                        selected={this.props.location.pathname == v.path}
-                        onPress={()=>{
-                            this.props.history.push(v.path)
-                        }}
-                    >
-
-                    </TabBar.Item>
-                ))}
-            </TabBar>
+            <div>
+                <TabBar>
+                    {navList.map(v=>(
+                        <TabBar.Item
+                            key={v.path}
+                            title={v.text}
+                            selected={this.props.location.pathname == v.path}
+                            onPress={()=>{
+                                this.props.history.push(v.path)
+                            }}
+                        >
+                        </TabBar.Item>
+                    ))}
+                </TabBar>
+            </div>
         )
     }
 }

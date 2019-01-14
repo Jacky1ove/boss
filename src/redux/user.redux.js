@@ -8,11 +8,10 @@ const LOAD_DATA = 'LOAD_DATA'
 
 const initState = {
     redirectTo:'',
-    isAuth:false,
     msg:'',
     username:'',
-    psw:'',
-    type:''
+    type:'',
+    desc:'',
 }
 export const user = (state=initState,action) => {
     switch (action.type) {
