@@ -19,6 +19,8 @@ class NavLink extends React.Component{
                             key={v.path}
                             title={v.text}
                             selected={this.props.location.pathname == v.path}
+                            icon={<img src={require(`./tabbar-icon/${v.icon}.png`)}></img>}
+                            selectedIcon={<img src={require(`./tabbar-icon/${v.icon}.png`)}></img>}
                             onPress={()=>{
                                 this.props.history.push(v.path)
                             }}

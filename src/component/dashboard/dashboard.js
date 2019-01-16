@@ -41,7 +41,7 @@ class Dashboard extends React.Component{
             {
                 path:'/msg',
                 text:'消息',
-                icon:'msg',
+                icon:'message',
                 title:'消息列表',
                 component:Message
             },

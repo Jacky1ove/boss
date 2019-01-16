@@ -58,14 +58,11 @@ Router.post('/update',(req,res) => {
         return res.json({code:1})
     }
     const body = req.body
-    console.log(body,'**************************')
     User.findOneAndUpdate({_id:userid},body,(err,doc) => {
-        console.log(userid,doc,'++++++++++++++++++++++++')
         const data = Object.assign({},{
             username:doc.username,
             type:doc.type
         },body)
-        console.log(data,'------------------------------')
         return res.json({code:0,data:data})
     })
 })

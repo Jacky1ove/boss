@@ -15,7 +15,7 @@ const models  = {
         //头像
         avatar:{type:String},
         //个人简介
-        description:{type:String},
+        desc:{type:String},
         //职位名
         title:{type:String},
         //如果你是老板你还有两个属性
