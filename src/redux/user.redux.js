@@ -14,12 +14,14 @@ const initState = {
     desc:'',
 }
 export const user = (state=initState,action) => {
+    console.log(action)
     switch (action.type) {
         // case REGISTER_SUCCESS:
         //     return {...state,isAuth:true,redirectTo:getRedirectPath(action.data),...action.data}
         // case LOGIN_SUCCESS:
         //     return {...state,isAuth:true,redirectTo:getRedirectPath(action.data),...action.data}
         case UPDATE_SUCCESS:
+        console.log({...state,redirectTo:getRedirectPath(action.data),...action.data})
             return {...state,redirectTo:getRedirectPath(action.data),...action.data}
         case LOAD_DATA:
             return {...state,...action.data}
@@ -55,7 +57,7 @@ export const login = ({username,psw}) => {
     axios.post('/user/login',{username,psw})
     .then(res =>{
         if(res.status === 200 && res.data.code ===0){
-            dispatch(UPDATE_SUCCESS(res.data))
+            dispatch(updateSuccess(res.data))
         }else{
             dispatch(errorMsg(res.data.msg))
         }

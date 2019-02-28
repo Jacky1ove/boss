@@ -1,5 +1,5 @@
 import React from 'react'
-import './boss.css'
+import './genius.css'
 import { WingBlank,WhiteSpace,Card } from 'antd-mobile'
 import { connect } from 'react-redux'
 import {getUserList} from '../../redux/chatuser.redux'
@@ -8,16 +8,16 @@ import {getUserList} from '../../redux/chatuser.redux'
     state=>state.chatUser,
     {getUserList}
 )
-class Boss extends React.Component{
+class Genius extends React.Component{
     constructor(props){
         super(props)
        
     }
     componentDidMount(){
-        this.props.getUserList('genius')
+        console.log(this.props,'****')
+        this.props.getUserList('boss')
     }
     render(){
-        console.log(this.props)
         return (
             <WingBlank>
                 {this.props.userList.map((item)=>{
@@ -42,4 +42,4 @@ class Boss extends React.Component{
     }
 }
 
-export default Boss
+export default Genius

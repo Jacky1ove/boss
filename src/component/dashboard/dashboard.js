@@ -4,10 +4,8 @@ import {NavBar} from 'antd-mobile'
 import NavLinkBar from '../navlink/navlink'
 import {Switch,Route} from 'react-router-dom'
 import Boss from '../boss/boss.js'
+import Genius from '../genius/genius'
 
-function Genius(){
-    return 'genius'
-}
 function Message(){
     return 'Message'
 }
@@ -19,8 +17,8 @@ function Me(){
 )
 class Dashboard extends React.Component{
     render(){
-        console.log(this.props)
         const user = this.props
+        console.log(user)
         const navList = [
             {
                 path:'/boss',
@@ -28,7 +26,7 @@ class Dashboard extends React.Component{
                 icon:'boss',
                 title:'牛人列表',
                 component:Boss,
-                hide:user.type=='genius'
+                hide:user.data.type=='boss'
             },
             {
                 path:'/genius',
@@ -36,21 +34,23 @@ class Dashboard extends React.Component{
                 icon:'genius',
                 title:'Boss列表',
                 component:Genius,
-                hide:user.type=='boss'
+                hide:user.data.type=='genius'
             },
             {
                 path:'/msg',
                 text:'消息',
                 icon:'message',
                 title:'消息列表',
-                component:Message
+                component:Message,
+                hide:true
             },
             {
                 path:'/my',
                 text:'个人中心',
                 icon:'my',
                 title:'个人中心',
-                component:Me
+                component:Me,
+                hide:true
             }
         ]
         return(

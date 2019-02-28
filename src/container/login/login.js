@@ -28,7 +28,6 @@ class Login extends React.Component{
     login = () =>{
         console.log(this.state)
         this.props.login(this.state)
-        this.props.uploadUser(this.state)
     }
     render(){
         return (
