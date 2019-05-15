@@ -17,10 +17,9 @@ class Boss extends React.Component{
         this.props.getUserList('genius')
     }
     render(){
-        console.log(this.props)
         return (
             <WingBlank>
-                {this.props.userList.map((item)=>{
+                {this.props.userList.length === 0?null:this.props.userList.map((item)=>{
                     return(
                         item.avatar?(
                             <div>

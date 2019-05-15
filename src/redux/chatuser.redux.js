@@ -5,10 +5,8 @@ const initState = {
     userList:[]
 }
 export const chatUser = (state=initState,action) => {
-    console.log(action)
     switch(action.type){
         case USERLIST:
-        console.log({...state,userList:action.data})
             return {...state,userList:action.data}
         default:
             return state
@@ -23,9 +21,8 @@ export const getUserList = (type) => {
   return dispatch=>{
     axios.get('/user/list?type='+type)
     .then(res=> {
-        console.log(res)
         if(res.status == 200){
-            dispatch(userList(res.data))
+            dispatch(userList(res.data.data))
         }
     })
   }

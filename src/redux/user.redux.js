@@ -1,7 +1,5 @@
 import axios from 'axios'
 import { getRedirectPath } from '../util'
-const REGISTER_SUCCESS = 'REGISTER_SUCCESS'
-const LOGIN_SUCCESS = 'LOGIN_SUCCESS'
 const UPDATE_SUCCESS = 'UPDATE_SUCCESS'
 const ERROR_MSG = 'ERROR_MSG'
 const LOAD_DATA = 'LOAD_DATA'
@@ -13,16 +11,12 @@ const initState = {
     type:'',
     desc:'',
 }
+
 export const user = (state=initState,action) => {
-    console.log(action)
     switch (action.type) {
-        // case REGISTER_SUCCESS:
-        //     return {...state,isAuth:true,redirectTo:getRedirectPath(action.data),...action.data}
-        // case LOGIN_SUCCESS:
-        //     return {...state,isAuth:true,redirectTo:getRedirectPath(action.data),...action.data}
         case UPDATE_SUCCESS:
-        console.log({...state,redirectTo:getRedirectPath(action.data),...action.data})
-            return {...state,redirectTo:getRedirectPath(action.data),...action.data}
+        console.log(action)
+            return {...state,redirectTo:getRedirectPath(action.data),...action.data.data}
         case LOAD_DATA:
             return {...state,...action.data}
         case ERROR_MSG:
@@ -32,12 +26,6 @@ export const user = (state=initState,action) => {
     }
 };
 
-// export const registerSuccess = (data) => {
-//     return {type:REGISTER_SUCCESS,data:data}
-// };
-// export const loginSuccess = (data) => {
-//     return {type:LOGIN_SUCCESS,data:data}
-// };
 export const updateSuccess = (data) => {
     return {type:UPDATE_SUCCESS,data:data}
 }
@@ -89,7 +77,6 @@ export const updateUser = (data) => {
     return dispatch=>{
         axios.post('/user/update',data)
             .then(res => {
-                console.log(res)
                 dispatch(updateSuccess(res.data.data))
             })
     }

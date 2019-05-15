@@ -22,7 +22,6 @@ class BossInfo extends React.Component{
         })
     }
     saveBossInfo = () => {
-        console.log(this.state.bossInfo)
         this.props.updateUser(this.state.bossInfo)
     }
     render(){

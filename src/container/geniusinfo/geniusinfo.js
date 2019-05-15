@@ -22,7 +22,6 @@ class GeniusInfo extends React.Component{
         })
     }
     saveGeniusInfo = () => {
-        console.log(this.state.geniusInfo)
         this.props.updateUser(this.state.geniusInfo)
     }
     render(){

@@ -9,13 +9,11 @@ class NavLink extends React.Component{
         data:PropTypes.array.isRequired 
     }
     render(){
-        console.log(this.props.data)
         const navList = this.props.data.filter((item)=>{
             if(item.hide){
                 return item
             }
         })
-        console.log(navList)
         return(
             <div>
                 <TabBar>

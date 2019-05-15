@@ -5,12 +5,10 @@ import NavLinkBar from '../navlink/navlink'
 import {Switch,Route} from 'react-router-dom'
 import Boss from '../boss/boss.js'
 import Genius from '../genius/genius'
+import User from '../user/user'
 
 function Message(){
     return 'Message'
-}
-function Me(){
-    return 'Me'
 }
 @connect(
     state=>state.user
@@ -18,7 +16,6 @@ function Me(){
 class Dashboard extends React.Component{
     render(){
         const user = this.props
-        console.log(user)
         const navList = [
             {
                 path:'/boss',
@@ -26,7 +23,7 @@ class Dashboard extends React.Component{
                 icon:'boss',
                 title:'牛人列表',
                 component:Boss,
-                hide:user.data.type=='boss'
+                hide:user.type=='boss'
             },
             {
                 path:'/genius',
@@ -34,7 +31,7 @@ class Dashboard extends React.Component{
                 icon:'genius',
                 title:'Boss列表',
                 component:Genius,
-                hide:user.data.type=='genius'
+                hide:user.type=='genius'
             },
             {
                 path:'/msg',
@@ -49,7 +46,7 @@ class Dashboard extends React.Component{
                 text:'个人中心',
                 icon:'my',
                 title:'个人中心',
-                component:Me,
+                component:User,
                 hide:true
             }
         ]

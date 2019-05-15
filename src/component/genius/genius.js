@@ -14,13 +14,13 @@ class Genius extends React.Component{
        
     }
     componentDidMount(){
-        console.log(this.props,'****')
         this.props.getUserList('boss')
     }
     render(){
+        console.log(this.props)
         return (
             <WingBlank>
-                {this.props.userList.map((item)=>{
+                {this.props.userList.length === 0?null:this.props.userList.map((item)=>{
                     return(
                         item.avatar?(
                             <div>
